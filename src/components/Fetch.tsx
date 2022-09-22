@@ -7,7 +7,7 @@ const Fetch = () => {
   // put them into a state variable
   // map the books into our return statement to show them in the UI
 
-  const [books, setBooks] = useState<Book[]>([]);
+ // const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(() => {
     fetchBooks();
