@@ -1,25 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Bootstrap from "./components/Bootstrap";
+import ClassComponent from "./components/ClassComponent";
+import FunctionalComponent from "./components/FunctionalComponent";
+import Fetch from "./components/Fetch";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ClassComponent
+                title="Hello Epicoders from CLASS COMPONENT"
+                subtitle="what an amazing lecture"
+              />
+            }
+          />
+
+          <Route
+            path="/functional"
+            element={
+              <>
+                <FunctionalComponent
+                  title="Another Title from Functional"
+                  subtitle="I'm the subtitle"
+                />
+                <FunctionalComponent title="Second Title from Functional" />
+              </>
+            }
+          />
+          <Route path="/bootstrap" element={<Bootstrap />} />
+          <Route path="/fetch" element={<Fetch />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
